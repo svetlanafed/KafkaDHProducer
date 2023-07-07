@@ -12,10 +12,20 @@ public class ProducerConfig {
     @Value("${topic.send-order}")
     private String topicName;
 
+    @Value("${topic.send-order-two}")
+    private String secondTopicName;
+
     @Bean
-    public NewTopic topic() {
+    public NewTopic topicWithPartitions() {
         return TopicBuilder.name(topicName)
                 .partitions(2)
+                .replicas(1)
+                .build();
+    }
+
+    @Bean
+    public NewTopic topicWithoutPartitions() {
+        return TopicBuilder.name(secondTopicName)
                 .replicas(1)
                 .build();
     }

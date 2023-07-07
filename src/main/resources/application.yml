@@ -17,3 +17,4 @@ spring:
 
 topic:
   send-order: send-order-event
+  send-order-two: send-order-event-second
