@@ -15,7 +15,6 @@ public class Producer {
     private final KafkaMessagingService kafkaMessagingService;
     private final OrderToOrderSendEventMapper orderSendEventMapper;
 
-
     public Order sendOrderEvent(Order order) {
         kafkaMessagingService.sendOrder(orderSendEventMapper.map(order));
         log.info("Send order from producer {}", order);
